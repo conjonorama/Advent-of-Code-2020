@@ -24,6 +24,7 @@ import itertools
 with open('input_09.txt', encoding='utf8') as f:
     test_data = f.read()
 test_data = test_data.strip().split()
+test_data_int = [int(i) for i in test_data]
 
 n = 25
 start = 25
@@ -41,5 +42,13 @@ for i in test_data[start:]:
 
 print(magic_num)
 
+# Part 2
 
-    
+inv_num = 400480901
+
+for i in range(test_data_int.index(inv_num)):
+    for j in range(i+1, test_data_int.index(inv_num)):
+        if(sum(test_data_int[i:j])) == inv_num:
+            print(test_data_int[i:j], min(test_data_int[i:j]), max(test_data_int[i:j]))
+
+print(len(test_data_int))
